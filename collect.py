@@ -17,12 +17,10 @@ https://www.cibomahto.com/2010/04/controlling-a-rigol-oscilloscope-using-linux-a
 
 import pyvisa
 import sys
+import os
 import time
 import datetime
 import json
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plot
 
 def readWaveform(scope, channel):
     """
@@ -73,7 +71,6 @@ metadata = {"timescale": timescale, "timeoffset": timeoffset,
             "voltscale": voltscale, "voltoffset": voltoffset,
             "samplerate": samplerate}
 
-
 # the last datetime for which we recorded data
 lastSecondRecorded = (datetime.datetime.now(datetime.timezone.utc)
                      .replace(microsecond=0))
@@ -90,13 +87,19 @@ try:
         if now > now.replace(microsecond=500000) and \
         now.replace(microsecond=0) > lastSecondRecorded:
             print("recording data for", now.isoformat(), end="\t[")
+            
             lastSecondRecorded = now.replace(microsecond=0)
+            
+            folder = os.path.join("data", now.date().isoformat())
+            if not os.path.exists(folder):
+                os.makedirs(folder)
             
             # read and record data for each channel
             for channel in [1, 2]:
                 rawdata = readWaveform(scope, channel)
-                filename = now.strftime("%Y-%m-%dT%H-%M-%S%Z") + \
-                    "chan" + str(channel) + ".bin"
+                filename = os.path.join(folder,
+                    now.strftime("%Y-%m-%dT%H-%M-%S%Z") + \
+                    "chan" + str(channel) + ".bin")
                 
                 with open(filename, "wb") as f:
                     f.write(rawdata)
@@ -108,7 +111,8 @@ try:
                 print('\nRead operation took too long: possible data errors in the last set of files')
                 sys.exit(-1)
             
-            metadata_filename = now.strftime("%Y-%m-%dT%H-%M-%S%Z") + ".json"
+            metadata_filename = os.path.join(folder,
+                now.strftime("%Y-%m-%dT%H-%M-%S%Z") + ".json")
             
             with open(metadata_filename, "w") as f:
                 json.dump(metadata, f, indent=1)
