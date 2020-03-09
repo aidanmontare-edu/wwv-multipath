@@ -90,7 +90,9 @@ try:
             
             lastSecondRecorded = now.replace(microsecond=0)
             
-            folder = os.path.join("data", now.date().isoformat())
+            folder = os.path.join("data",
+                                  now.date().isoformat(),
+                                  now.hour)
             if not os.path.exists(folder):
                 os.makedirs(folder)
             
