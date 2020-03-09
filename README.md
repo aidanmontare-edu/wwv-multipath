@@ -3,10 +3,10 @@ Aidan Montare
 
 ![Scope display](scope2.bmp)
 
-~The above image is from the "UltraScope" software from Rigol ([available
+*The above image is from the "UltraScope" software from Rigol ([available
 free on their website](https://www.rigolna.com/products/digital-oscilloscopes/1000/)).
 If you want to manually use your computer to control your scope, this is a
-good option.~
+good option.*
 
 ## Background
 
@@ -33,7 +33,7 @@ the "UltraSigma Instrument Connectivity Driver")
 
 ## Setup
 
-1. Connect all the things.
+1. Connect all the things. Install the dependencies.
 2. Get the oscilloscope triggering happily off the PPS signal. Verify
 you can see the second ticks arriving (as in image above).
 3. Run `collect.py`, and data should start flowing!
