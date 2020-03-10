@@ -1,6 +1,8 @@
 # WWV Multipath
 Aidan Montare
 
+**Current project status:** I made a draft version of the code. No clue if it works with the Rigol scope correctly or not.
+
 ![Scope display](scope2.bmp)
 
 *The above image is from the "UltraScope" software from Rigol ([available
