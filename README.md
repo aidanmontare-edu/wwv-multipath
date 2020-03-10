@@ -1,7 +1,7 @@
 # WWV Multipath
 Aidan Montare
 
-**Current project status:** I made a draft version of the code. No clue if it works with the Rigol scope correctly or not.
+**Current project status:** I made a draft version of the code for collecting data. No clue if it works with the Rigol scope correctly or not. I currently have no working code to conver the collected data into a form suitable for analysis.
 
 ![Scope display](scope2.bmp)
 
