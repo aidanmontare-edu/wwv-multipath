@@ -29,9 +29,9 @@ channel of the oscilloscope
 - usual SciPy things (numpy, matplotlib)
 - [PyVisa](https://pyvisa.readthedocs.io/en/latest/index.html)
 (available via pip)
-- Rigol drivers (on the [Rigol page for the scope]
-(https://www.rigolna.com/products/digital-oscilloscopes/1000/), download
-the "UltraSigma Instrument Connectivity Driver")
+- Rigol drivers (on the
+[Rigol page for the scope](https://www.rigolna.com/products/digital-oscilloscopes/1000/),
+download the "UltraSigma Instrument Connectivity Driver")
 
 ## Setup
 
